@@ -26,9 +26,9 @@ pipeline {
             steps{
                 withSonarQubeEnv('sonar-scanner') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner 
-                    -Dsonar.projectName=Python-system-monitor \
+                    -Dsonar.projectName=Python-Webapp \
                     -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Python-System-monitor '''
+                    -Dsonar.projectKey=Python-Webapp '''
                 }
             }
         }
