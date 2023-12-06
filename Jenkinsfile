@@ -16,6 +16,7 @@ pipeline {
             steps{
                 cleanWs()
             }
+        }    
         
         stage("Sonarqube Analysis "){
             steps{
