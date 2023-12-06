@@ -8,20 +8,15 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', changelog: false, credentialsId: '15fb69c3-3460-4d51-bd07-2b0545fa5151', poll: false, url: 'https://github.com/jaiswaladi246/Shopping-Cart.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/balu1123/Python-System-Monitoring.git'
             }
         }
 
-        stage('COMPILE') {
-            steps {
-                sh "mvn clean compile -DskipTests=true"
-            }
-        }
-
+        
         stage("Sonarqube Analysis "){
             steps{
-                withSonarQubeEnv('sonarqube') {
-                    sh ''' $SCANNER_HOME/bin/sonarqube 
+                withSonarQubeEnv('sonar-scanner') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner 
                     -Dsonar.projectName=Python-system-monitor \
                     -Dsonar.projectKey=Python-System-monitor '''
                 }
