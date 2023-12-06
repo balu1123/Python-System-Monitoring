@@ -20,8 +20,8 @@ pipeline {
 
         stage("Sonarqube Analysis "){
             steps{
-                withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner 
+                withSonarQubeEnv('sonarqube') {
+                    sh ''' $SCANNER_HOME/bin/sonarqube 
                     -Dsonar.projectName=Python-system-monitor \
                     -Dsonar.projectKey=Python-System-monitor '''
                 }
