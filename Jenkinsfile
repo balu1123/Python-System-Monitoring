@@ -12,6 +12,10 @@ pipeline {
             }
         }
 
+        stage('clean workspace'){
+            steps{
+                cleanWs()
+            }
         
         stage("Sonarqube Analysis "){
             steps{
