@@ -17,5 +17,15 @@ pipeline {
                 sh "mvn clean compile -DskipTests=true"
             }
         }
+
+        stage("Sonarqube Analysis "){
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner 
+                    -Dsonar.projectName=Python-system-monitor \
+                    -Dsonar.projectKey=Python-System-monitor '''
+                }
+            }
+        }
     }
 }        
