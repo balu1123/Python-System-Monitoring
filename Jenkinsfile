@@ -27,7 +27,6 @@ pipeline {
                 withSonarQubeEnv('sonar-scanner') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner 
                     -Dsonar.projectName=Python-Webapp \
-                    -Dsonar.java.binaries=. \
                     -Dsonar.projectKey=Python-Webapp '''
                 }
             }
