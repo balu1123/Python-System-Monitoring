@@ -17,11 +17,11 @@ pipeline{
         }
         stage("Sonarqube Analysis "){
             steps{
-                withSonarQubeEnv('credentialsId: 'sonar'') {
+                
                     sh ''' $SCANNER_HOME/bin/sonar-scanner 
                     -Dsonar.projectName=Python-Webapp \
                     -Dsonar.projectKey=Python-Webapp '''
-                }
+                
             }
         }
         
